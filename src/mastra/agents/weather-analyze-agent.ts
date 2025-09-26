@@ -6,6 +6,7 @@ import { weatherSQLTool } from '../tools/weather-sql-tool';
 
 export const weatherAnalyzeAgent = new Agent({
   name: 'Weather Analyze Agent',
+  description: "Analyzes weather data and provides insights",
   instructions: `
     あなたは、weather_test_data.dbのweather_measurementsテーブル（実測データ）とweather_forecastsテーブル（予報データ）に保存された天気データをもとに、正確でわかりやすい天気分析や洞察を提供できるエージェントです。
 

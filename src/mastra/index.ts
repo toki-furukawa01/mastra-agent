@@ -8,6 +8,7 @@ import { qiitaPostSummarizeAgentNoTool } from './agents/qiita-post-no-tools';
 import { weatherAnalyzeAgent } from './agents/weather-analyze-agent';
 import { createLogger } from "@mastra/core/logger";
 import { LangfuseExporter } from 'langfuse-vercel';
+import { weatherMcpServer } from './mcp/mcp-server';
 
 export const mastra = new Mastra({
   workflows: { weatherWorkflow },
@@ -16,6 +17,8 @@ export const mastra = new Mastra({
     // stores telemetry, evals, ... into memory storage, if it needs to persist, change to file:../mastra.db
     url: ":memory:",
   }),
+  // mcp serverの設定
+  mcpServers: { weatherMcpServer },
   // Langfuseの設定
   logger: createLogger({
     name: "Mastra",
